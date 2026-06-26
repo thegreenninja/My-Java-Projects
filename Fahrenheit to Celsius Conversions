@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class Driver
+{
+    public static void main(String[] args)
+    {
+        Scanner evee = new Scanner(System.in);
+        char continuecalc;
+
+
+        do
+        {
+        System.out.println("Enter 'F' for fahrenheit and 'C' for celsius");
+        char temp = evee.next().charAt(0);
+        if(temp!='F' && temp!='C')
+        {
+            System.out.println("Please enter a valid character");
+            evee.next().charAt(0);
+        }
+        if(temp == 'F')
+        {
+            
+            System.out.println("Enter the degrees in fahrenheit");
+            double fahrenheit = evee.nextDouble();
+            System.out.println("Here is the measurement converted to celsius "+((fahrenheit-32)*(5.0/9)));
+        }
+        if(temp == 'C')
+        {
+            
+            System.out.println("Enter the degrees in celsius");
+            double celsius = evee.nextDouble();
+            System.out.println("Here is the measurement converted to fahrenheit "+(celsius*(9.0/5))+32);
+        }
+        System.out.println("Do you want to continue? Enter 'Y' for Yes and 'N' for No");
+        continuecalc = evee.next().charAt(0);
+        if(continuecalc == 'N')
+        {
+            evee.close();
+            System.exit(0);
+        }
+        } while(continuecalc == 'Y');
+
+        
+    }
+}
