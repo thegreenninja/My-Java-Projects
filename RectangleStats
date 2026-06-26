@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class RectangleStat {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("=== Rectangle Stats Collector ===");
+        
+        System.out.print("Enter the width of the rectangle: ");
+        double width = scanner.nextDouble();
+        
+        System.out.print("Enter the height of the rectangle: ");
+        double height = scanner.nextDouble();
+        
+        double area = width * height;
+        double perimeter = 2 * (width + height);
+        
+        double diagonal = Math.sqrt((width * width) + (height * height));
+        
+        System.out.println("Rectangle Results");
+        System.out.printf("Width:      %.2f\n", width);
+        System.out.printf("Height:     %.2f\n", height);
+        System.out.printf("Area:       %.2f\n", area);
+        System.out.printf("Perimeter:  %.2f\n", perimeter);
+        System.out.printf("Diagonal:   %.2f\n", diagonal);
+        
+        scanner.close();
+    }
+}
