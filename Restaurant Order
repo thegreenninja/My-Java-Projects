@@ -1,0 +1,74 @@
+import java.util.Scanner; 
+
+public class Restaurant {
+    public static void main(String[] args) {
+        Scanner waiter = new Scanner(System.in);
+        
+        int total = 0; 
+        char response = 'N'; 
+
+        System.out.println("Welcome to Adi's Dining, what would you like to order");
+        System.out.println("We have burgers, fries, and a salad");
+        System.out.println("Please enter a 'B' for burgers");
+        System.out.println("A 'F' for fries");
+        System.out.println("A 'S' for salad");
+        System.out.println("Salads are $8, Burgers are $13, And Fries are $6");
+        
+        char order = waiter.next().toUpperCase().charAt(0); 
+        System.out.println("Thank you, how many would you like?");
+        int quantity1 = waiter.nextInt();
+
+        while (quantity1 < 0) {
+            System.out.println("Please enter a valid number (0 or greater): ");
+            quantity1 = waiter.nextInt(); 
+        }        
+
+        if (order == 'B') {
+            total += 13 * quantity1;
+        } else if (order == 'F') {
+            total += 6 * quantity1;
+        } else if (order == 'S') {
+            total += 8 * quantity1;
+        }
+
+        System.out.println("Anything else you would like to add to your order? Type 'Y' for yes and 'N' for no");
+        response = waiter.next().toUpperCase().charAt(0); 
+
+        while (response == 'Y') {
+            System.out.println("Ok, what else would you like:");
+            char order2 = waiter.next().toUpperCase().charAt(0); 
+            
+            System.out.println("And how many? ");
+            int quantity2 = waiter.nextInt();
+            
+            while (quantity2 < 0) {
+                System.out.println("Please enter a valid number: ");
+                quantity2 = waiter.nextInt();
+            }
+
+            if (order2 == 'B') {
+                total += 13 * quantity2;
+            } else if (order2 == 'F') {
+                total += 6 * quantity2;
+            } else if (order2 == 'S') {
+                total += 8 * quantity2;
+            }
+
+            System.out.println("Anything else? 'Y' for yes, 'N' for no");
+            response = waiter.next().toUpperCase().charAt(0);
+        }
+
+        System.out.println("Your total is: $" + total);
+        System.out.println("How would you like to pay?");
+        System.out.println("Enter 'C' for cash and 'R' for Card"); 
+        char payment = waiter.next().toUpperCase().charAt(0);
+        if (payment == 'R') {
+            System.out.println("Please insert card in detector");
+            System.out.println("Thank you for dining with us, please come back soon!");
+        } else {
+            System.out.println("Thank you! Have a wonderful day!");
+        }
+        
+        waiter.close();
+    }
+}
