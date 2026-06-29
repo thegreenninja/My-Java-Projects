@@ -1,0 +1,47 @@
+import java.util.Scanner; 
+public class QuadSolver
+{
+    public static void main(String[] args)
+    {
+        double a=0.0;
+        double b =0.0;
+        double c= 0.0;
+        double root1 = 0.0;
+        double root2 = 0.0;
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Hello welcome to the Quadratic Calculator");
+        System.out.println("Please enter the a value in your quadratic equation: ");
+        a = input.nextDouble();
+        while (a == 0) 
+        {
+            System.out.println("Error: 'a' cannot be zero in a quadratic equation.");
+            System.out.println("Please enter a non-zero 'a' value: ");
+            a = input.nextDouble();
+        }
+        System.out.println("Please enter your b value: ");
+        b = input.nextDouble();
+        System.out.println("Please enter your c value");
+        c = input.nextDouble();
+        
+        double discriminant = (b * b) - (4 * a * c);
+
+        if (discriminant < 0) 
+        {
+            System.out.println("The roots are imaginary (no real solution).");
+            System.out.println("Thanks!");
+        }       
+        else 
+        {
+            root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            System.out.println("Here is the first root: "+ root1);
+            System.out.println("And here is the second root: "+root2);
+            System.out.println("Thank you for using my calculator");
+        
+        }
+        
+        
+        
+    }
+}
